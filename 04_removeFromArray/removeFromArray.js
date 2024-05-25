@@ -1,9 +1,10 @@
-const removeFromArray = function(arr) {
-    let targets = Array.from(arguments);
+const removeFromArray = function(arr, ...args) {
+    let targets = Array.from(args);
     
     let insertion = 0;
     for (let i = 0; i < arr.length; i++) {
-        if (!targets.some(a => a === arr[i])) {
+        if (!targets.includes(arr[i])) {
+        // if (!targets.some(a => a === arr[i])) { 
             arr[insertion] = arr[i];
             insertion++;
         }
